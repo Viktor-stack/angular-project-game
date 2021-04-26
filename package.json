@@ -12,7 +12,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm run build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build"
   },
   "browser": {
     "fs": false,
@@ -28,16 +28,16 @@
     "@angular/forms": "~11.2.10",
     "@angular/platform-browser": "~11.2.10",
     "@angular/platform-browser-dynamic": "~11.2.10",
+    "@angular-devkit/build-angular": "~0.1102.9",
+    "@angular/compiler-cli": "~11.2.10",
+    "@angular/cli": "~11.2.9",
     "@angular/router": "~11.2.10",
+    "typescript": "~4.1.5",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
   },
   "devDependencies": {
-    "@angular/compiler-cli": "~11.2.10",
-    "@angular/cli": "~11.2.9",
-    "typescript": "~4.1.5",
-    "@angular-devkit/build-angular": "~0.1102.9",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
