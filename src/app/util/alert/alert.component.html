@@ -1,0 +1,11 @@
+<div #modal class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <h1 *ngIf="this.gameService.user === 10" style="text-align: center; color: green">Ты победил</h1>
+    <h1 *ngIf="this.gameService.computer ===10" style="text-align: center; color: red">Ты проиграл</h1>
+    <p>User: {{this.gameService.user}}</p>
+    <p>Computer: {{this.gameService.computer}}</p>
+    <a href="/" (click)="close()" class="close btn-alert">Начать заново</a>
+  </div>
+</div>
+
