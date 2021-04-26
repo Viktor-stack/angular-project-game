@@ -1,0 +1,35 @@
+.field_play {
+  background-color: aqua;
+  width: 100%;
+  padding: 20px;
+}
+
+.text_title {
+  padding-bottom: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.field_play--inner {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.btn {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: green;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+button[disabled] {
+  background-color: #888888 !important;
+}

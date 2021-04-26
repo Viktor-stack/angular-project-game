@@ -1,0 +1,18 @@
+<div class="field_play">
+  <div class="text_title">field-play-game works!</div>
+  <form class="form">
+    <label>
+      Ведите значение в милисиккундах
+      <input class="control_input" type="number" [formControl]="time">
+    </label>
+    <button (click)="isGamer()" class="btn" [disabled]="time.invalid">Играть</button>
+  </form>
+  <div>User: {{this.gameService.user}}</div>
+  <div>Computer: {{this.gameService.computer}}</div>
+  <div #idTest class="field_play--inner">
+    <app-field-play
+      *ngFor="let x of box"
+      [data-number]="x"
+    ></app-field-play>
+  </div>
+</div>
