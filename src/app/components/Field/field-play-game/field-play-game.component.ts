@@ -6,7 +6,7 @@ import {
   Output, ViewChild
 } from '@angular/core';
 import {GameService} from '../../../shared/services/game.service';
-import {FormControl, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 
 @Component({
@@ -19,7 +19,8 @@ export class FieldPlayGameComponent implements OnInit {
   @Output('isGame') isGame: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('idTest') idRef: ElementRef | any;
   isTime = 0;
-  time = new FormControl(null, [Validators.required]);
+  forms: FormGroup;
+  userCounter = 0;
 
   constructor(public gameService: GameService,) {
   }
@@ -28,13 +29,16 @@ export class FieldPlayGameComponent implements OnInit {
     for (let i = 0; i <= 99; i++) {
       this.box[i] = i;
     }
+    this.forms = new FormGroup({
+      time: new FormControl(null, [Validators.required, Validators.min(800)])
+    });
   }
 
   isGamer() {
-    this.isTime = this.time.value;
-    this.gameService.run(this.idRef, this.isTime);
-    this.time.reset();
+    this.forms.disable();
+    this.isTime = this.forms.value.time;
+    this.gameService.isRun(this.idRef, this.isTime);
+    this.forms.reset();
   }
-
 }
 

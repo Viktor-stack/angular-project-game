@@ -24,12 +24,36 @@
 .btn {
   border: none;
   padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
   border-radius: 5px;
   background-color: green;
   color: #ffffff;
   cursor: pointer;
+  margin-top: 20px;
 }
 
 button[disabled] {
   background-color: #888888 !important;
 }
+
+.errors {
+  padding: 5px;
+  font-size: 24px;
+  color: red;
+  font-weight: 600;
+}
+
+.halper-text {
+  margin-top: 10px;
+  display: block;;
+  width: 100%;
+
+  &.red-text {
+    text-align: center;
+    border-radius: 15px;
+    font-size: 15px;
+  }
+
+}
+

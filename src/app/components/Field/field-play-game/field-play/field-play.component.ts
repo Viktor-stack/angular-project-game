@@ -7,6 +7,8 @@ import {GameService} from '../../../../shared/services/game.service';
   styleUrls: ['./field-play.component.scss']
 })
 export class FieldPlayComponent implements OnInit, AfterViewInit {
+  private user = 0;
+  @Output('userCount') userCount = new EventEmitter();
   @Input('data-number') number: any;
   @ViewChild('element') element: any;
 
@@ -25,7 +27,14 @@ export class FieldPlayComponent implements OnInit, AfterViewInit {
     if (this.gameService.i == this.number) {
       this.gameService.setClickId(this.number);
       this.element.nativeElement.classList.add('green');
+      this.userIncrement();
+      this.userCount.emit(this.user);
     }
+  }
+
+
+  userIncrement() {
+    return this.user++;
   }
 
 }

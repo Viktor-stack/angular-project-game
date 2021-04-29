@@ -1,11 +1,17 @@
 <div class="field_play">
   <div class="text_title">field-play-game works!</div>
-  <form class="form">
+  <form class="form" [formGroup]="forms" (ngSubmit)="isGamer()">
     <label>
       Ведите значение в милисиккундах
-      <input class="control_input" type="number" [formControl]="time">
+      <input class="control_input" type="number" formControlName="time">
+      <span class="halper-text red-text"
+            *ngIf="forms.get('time').invalid && forms.get('time').touched"
+      >
+        <span *ngIf="forms.get('time').errors['min']"
+              class="errors">Минимальное значение должно быть не меньше 800мс</span>
+      </span>
     </label>
-    <button (click)="isGamer()" class="btn" [disabled]="time.invalid">Играть</button>
+    <button type="submit" class="btn" [disabled]="forms.invalid || forms.disabled">Играть</button>
   </form>
   <div>User: {{this.gameService.user}}</div>
   <div>Computer: {{this.gameService.computer}}</div>
@@ -16,3 +22,4 @@
     ></app-field-play>
   </div>
 </div>
+
